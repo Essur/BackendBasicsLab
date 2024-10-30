@@ -21,12 +21,12 @@ public class FunctionCalculator {
     }
 
     public double calculate(double x, double a, double b, double c) {
-        if (x < 1.4) {
+        if (x < 1.4 - 0.00000000001) {
             return a * x * x + b * x + c;
-        } else if (x == 1.4) {
-            return a / x * Math.sqrt(x * x + 1);
-        } else {
+        } else if (x > 1.4 + 0.00000000001) {
             return (a + b * x) / Math.sqrt(x * x + 1);
+        } else {
+            return a / x * Math.sqrt(x * x + 1);
         }
     }
 
@@ -57,15 +57,6 @@ public class FunctionCalculator {
         }
         return minIndex;
     }
-
-    public double calculateSum() {
-        double sum = 0;
-        for (double y : yValues) {
-            sum += y;
-        }
-        return sum;
-    }
-
     public double getSum() {
         double sum = 0;
         for (double value : yValues) {
